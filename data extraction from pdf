@@ -1,0 +1,23 @@
+library(tesseract)
+
+pngfile <- pdftools::pdf_convert('Labs.pdf', 
+pages=1001:1161,
+dpi = 600)
+text <- tesseract::ocr(pngfile)
+head(cat(text))
+write.csv(text,"labsp1001to1161.csv")
+
+
+pngfile <- pdftools::pdf_convert('MagneticResonanceImaging.pdf', 
+pages=1:500,
+dpi = 600)
+text <- tesseract::ocr(pngfile)
+head(cat(text))
+write.csv(text,"labsp1to500.csv") #OF1122
+
+pngfile <- pdftools::pdf_convert('MagneticResonanceImaging.pdf', 
+pages=1001:1122,
+dpi = 600)
+text <- tesseract::ocr(pngfile)
+head(cat(text))
+write.csv(text,"labsp1001to1122.csv") #OF1122
